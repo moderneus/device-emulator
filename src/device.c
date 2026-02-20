@@ -7,6 +7,8 @@ void device_init(struct device *dev)
 {
 	warn(dev->handle != DEVICE_NONE_HANDLE, "device is already inited");
 	dev->handle = rand();
+	dev->heap = NULL;
+	dev->heap_len = 0;
 }
 
 void device_destroy(struct device *dev)
