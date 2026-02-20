@@ -15,7 +15,7 @@ int main(void)
 	device_malloc(&dev, sizeof(u32) * 4);
 
 	for(i = 0; i < dev.heap_len / sizeof(u32); ++i)
-		device_write(&dev, i, );
+		device_write(&dev, i, i);
 
 	for(i = 0; i < dev.heap_len / sizeof(u32); ++i)
 		device_read(&dev, &buf[i], i);
