@@ -1,4 +1,6 @@
-TARGET = src/build/device.a
+TARGET = src/build/libdevice.a
+
+TEST = src/build/test
 
 CC = clang
 
@@ -9,7 +11,7 @@ OBJ = $(patsubst src/%.c, src/build/obj/%.o, $(SRC))
 
 .PHONY: all clean
 
-all: $(TARGET)
+all: $(TARGET) $(TEST)
 
 src/build/obj/%.o: src/%.c
 	@echo "CC: $@"
@@ -20,6 +22,11 @@ $(TARGET): $(OBJ)
 	@echo "LD: $@"
 	@mkdir -p $(dir $@)
 	@ar rcs $@ $^
+
+$(TEST) : src/test.c
+	@echo "LD: $@"
+	@mkdir -p $(dir $@)
+	@$(CC) $(CC_FLAGS) $< -o $@ -L./src/build -ldevice
 
 clean:
 	@rm -rf src/build
