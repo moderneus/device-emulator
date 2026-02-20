@@ -1,0 +1,20 @@
+#include "device.h"
+#include "mem.h"
+#include "err.h"
+
+#include <stdlib.h>
+
+void device_malloc(struct device *dev, u32 len) 
+{
+	err(dev->handle == DEVICE_NONE_HANDLE, "device is not inited");
+	dev->heap_len = len;
+	dev->heap = malloc(dev->heap_len);
+	err(!dev->heap, "failed to alloc mem");
+}
+
+void device_free(struct device *dev)
+{
+	err(dev->handle == DEVICE_NONE_HANDLE, "device is not inited");
+	warn(!dev->heap, "device has not allocated mem");
+	free(dev->heap);
+}
