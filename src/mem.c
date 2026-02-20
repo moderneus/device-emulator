@@ -7,8 +7,14 @@
 void device_malloc(struct device *dev, u32 len) 
 {
 	err(dev->handle == DEVICE_NONE_HANDLE, "device is not inited");
+	warn(dev->heap != NULL, "device already has allocated mem");
+
+	if(dev->heap)
+		free(dev->heap);
+
 	dev->heap_len = len;
 	dev->heap = malloc(dev->heap_len);
+
 	err(!dev->heap, "failed to alloc mem");
 }
 
