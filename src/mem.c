@@ -16,5 +16,9 @@ void device_free(struct device *dev)
 {
 	err(dev->handle == DEVICE_NONE_HANDLE, "device is not inited");
 	warn(!dev->heap, "device has not allocated mem");
+
 	free(dev->heap);
+
+	dev->heap = NULL;
+	dev->heap_len = 0;
 }
