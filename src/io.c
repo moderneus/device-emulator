@@ -1,6 +1,6 @@
-#include "device.h"
-#include "io.h"
-#include "err.h"
+#include "device/device.h"
+#include "device/io.h"
+#include "device/err.h"
 
 void device_write(struct device *dev, u32 data, u32 idx)
 {

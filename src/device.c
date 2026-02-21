@@ -1,5 +1,5 @@
-#include "device.h"
-#include "err.h"
+#include "device/device.h"
+#include "device/err.h"
 
 #include <stdlib.h>
 

@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-#include "device.h"
-#include "mem.h"
-#include "def.h"
-#include "io.h"
+#include "device/device.h"
+#include "device/mem.h"
+#include "device/def.h"
+#include "device/io.h"
 
 int main(void)
 {

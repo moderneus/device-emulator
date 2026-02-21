@@ -1,6 +1,6 @@
-#include "device.h"
-#include "mem.h"
-#include "err.h"
+#include "device/device.h"
+#include "device/mem.h"
+#include "device/err.h"
 
 #include <stdlib.h>
 
