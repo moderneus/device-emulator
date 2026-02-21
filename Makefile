@@ -16,7 +16,7 @@ all: $(TARGET) $(TEST)
 src/build/obj/%.o: src/%.c
 	@echo "CC: $@"
 	@mkdir -p $(dir $@)
-	@$(CC) -c $(CC_FLAGS) $< -o $@
+	@$(CC) -c $(CC_FLAGS) $< -o $@ -I./include
 
 $(TARGET): $(OBJ)
 	@echo "LD: $@"
@@ -26,7 +26,7 @@ $(TARGET): $(OBJ)
 $(TEST) : src/test.c
 	@echo "LD: $@"
 	@mkdir -p $(dir $@)
-	@$(CC) $(CC_FLAGS) $< -o $@ -L./src/build -ldevice
+	@$(CC) $(CC_FLAGS) $< -o $@ -I./include -L./src/build -ldevice
 
 clean:
 	@rm -rf src/build
